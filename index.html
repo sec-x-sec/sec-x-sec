@@ -3,162 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sec-X Cybersecurity</title>
+    <title>Galactic Shield - Protecting Your Digital Universe</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #e0e0e0;
-            background-color: #0a0a0a;
-        }
-        header {
-            background: url('./hacking_background.jpg') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 3em 1em;
-        }
-        header h1 {
-            font-size: 3em;
-            margin: 0.5em 0;
-        }
-        header p {
-            font-size: 1.5em;
-        }
-        nav {
-            background-color: #1a1a1a;
-            display: flex;
-            justify-content: center;
-            padding: 1em 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-        nav a {
-            color: #00e676;
-            margin: 0 20px;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-        nav a:hover {
-            color: #00c853;
-        }
-        section {
-            padding: 4em 2em;
-            text-align: center;
-        }
-        section#home {
-            background: url('./cybersecurity.jpg') no-repeat center center/cover;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-        }
-        section h2 {
-            font-size: 2.5em;
-            margin-bottom: 1em;
-        }
-        section p {
-            font-size: 1.2em;
-            margin-bottom: 1.5em;
-        }
-        section ul {
-            list-style: none;
-            padding: 0;
-        }
-        section ul li {
-            font-size: 1.2em;
-            margin: 1em 0;
-        }
-        footer {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-            padding: 1.5em 0;
-            text-align: center;
-            font-size: 1em;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a1f;
+            color: #00ffff;
             position: relative;
-            bottom: 0;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)),
+                url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAwIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMSIgZmlsbD0iIzAwZiIvPjwvc3ZnPg==');
+            z-index: -1;
+            pointer-events: none;
         }
-        .cta {
-            background-color: #00e676;
-            color: #0a0a0a;
-            padding: 1em 2em;
-            margin: 1em 0;
-            display: inline-block;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease;
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+            position: relative;
+            overflow: hidden;
         }
-        .cta:hover {
-            background-color: #00c853;
+
+        .gradient-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(0, 255, 255, 0.05) 0px,
+                rgba(0, 255, 255, 0.05) 1px,
+                transparent 1px,
+                transparent 10px
+            );
         }
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                margin: 10px 0;
-            }
-            header h1 {
-                font-size: 2em;
-            }
-            header p {
-                font-size: 1.2em;
-            }
-            section h2 {
-                font-size: 2em;
-            }
-            section p {
-                font-size: 1em;
-            }
+
+        .service-card {
+            background: rgba(0, 30, 60, 0.5);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
         }
-        @media (max-width: 480px) {
-            section {
-                padding: 2em 1em;
-            }
-            .cta {
-                font-size: 1em;
-                padding: 0.8em 1.5em;
-            }
+
+        .service-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            transition: all 0.3s ease;
+            border-color: rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .cyber-button {
+            background: linear-gradient(45deg, #00428c, #004e92);
+            border: 1px solid #00ffff;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cyber-button:hover {
+            background: linear-gradient(45deg, #004e92, #00428c);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            transform: scale(1.05);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .cyber-border {
+            position: relative;
+        }
+
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ffff, transparent, #00ffff);
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 255, 0.2);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #00ffff;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: translateX(0);
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Sec-X Cybersecurity</h1>
-        <p>Your trusted partner in advanced cybersecurity solutions.</p>
-    </header>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About Us</a>
+    <!-- Navigation -->
+    <nav class="bg-black bg-opacity-90 text-cyan-400 py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold glow-text">GALACTIC_SHIELD</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="nav-link hover:text-cyan-300 transition-colors duration-300">HOME</a>
+                <a href="#services" class="nav-link hover:text-cyan-300 transition-colors duration-300">SERVICES</a>
+                <a href="#about" class="nav-link hover:text-cyan-300 transition-colors duration-300">ABOUT</a>
+                <a href="#contact" class="nav-link hover:text-cyan-300 transition-colors duration-300">CONTACT</a>
+            </div>
+            <button class="md:hidden cyber-button px-3 py-1 rounded" onclick="toggleMenu()">
+                <i class="bi bi-list text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-95">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 hover:bg-cyan-900 transition-colors duration-300">HOME</a>
+                <a href="#services" class="block px-3 py-2 hover:bg-cyan-900 transition-colors duration-300">SERVICES</a>
+                <a href="#about" class="block px-3 py-2 hover:bg-cyan-900 transition-colors duration-300">ABOUT</a>
+                <a href="#contact" class="block px-3 py-2 hover:bg-cyan-900 transition-colors duration-300">CONTACT</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Home Page -->
-    <section id="home">
-        <h2>Welcome to Sec-X Cybersecurity</h2>
-        <p>Providing state-of-the-art cybersecurity services to protect your digital assets.</p>
-        <a href="mailto:ceo@sec-x.com" class="cta">Contact Us: ceo@sec-x.com</a>
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-cyan-400 py-32 relative">
+        <div class="scan-line"></div>
+        <div class="container mx-auto px-4 text-center relative">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 glow-text">DEFENDING YOUR DIGITAL GALAXY</h1>
+            <p class="text-xl mb-8">ADVANCED CYBERSECURITY SOLUTIONS FOR A FUTURISTIC WORLD</p>
+            <a href="ceo@sec-x.com" class="cyber-button px-8 py-3 rounded-full font-bold inline-block">
+                INITIATE CONSULTATION PROTOCOL
+            </a>
+        </div>
     </section>
 
-    <!-- Services Page -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li><strong>Penetration Testing:</strong> Comprehensive security testing to uncover vulnerabilities.</li>
-            <li><strong>Phishing Simulation:</strong> Train your workforce to recognize and avoid phishing attacks.</li>
-            <li><strong>Red Teaming:</strong> Simulated cyberattacks to evaluate and strengthen your defenses.</li>
-            <li><strong>Expert Consulting:</strong> Weekly OSCP-certified cybersecurity professionals at your service.</li>
-        </ul>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-black bg-opacity-80">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 glow-text">GALACTIC DEFENSE MATRIX</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Cards -->
+                <div class="service-card p-6 rounded-lg cyber-border">
+                    <i class="bi bi-shield-check text-4xl text-cyan-400"></i>
+                    <h3 class="text-xl font-bold mt-4 mb-2">QUANTUM PENETRATION TESTING</h3>
+                    <p class="text-gray-300 mb-4">Advanced security assessment utilizing quantum algorithms to identify vulnerabilities across dimensional barriers.</p>
+                    <button onclick="showServiceDetails('pentest')" class="text-cyan-400 hover:text-cyan-300">ANALYZE →</button>
+                </div>
+                
+                <div class="service-card p-6 rounded-lg cyber-border">
+                    <i class="bi bi-search text-4xl text-cyan-400"></i>
+                    <h3 class="text-xl font-bold mt-4 mb-2">NEURAL VULNERABILITY SCAN</h3>
+                    <p class="text-gray-300 mb-4">AI-powered scanning system that predicts and identifies security anomalies before they manifest.</p>
+                    <button onclick="showServiceDetails('vulnassess')" class="text-cyan-400 hover:text-cyan-300">ANALYZE →</button>
+                </div>
+
+                <div class="service-card p-6 rounded-lg cyber-border">
+                    <i class="bi bi-shield-exclamation text-4xl text-cyan-400"></i>
+                    <h3 class="text-xl font-bold mt-4 mb-2">TEMPORAL INCIDENT RESPONSE</h3>
+                    <p class="text-gray-300 mb-4">Real-time threat neutralization across multiple temporal zones ensuring continuous protection.</p>
+                    <button onclick="showServiceDetails('incident')" class="text-cyan-400 hover:text-cyan-300">ANALYZE →</button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- About Us Page -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Sec-X is a team of elite cybersecurity professionals dedicated to safeguarding your business against cyber threats. Our OSCP-certified experts specialize in advanced penetration testing, red teaming, and security consulting to deliver unparalleled protection.</p>
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="scan-line"></div>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 glow-text">SYSTEM OVERVIEW</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="cyber-border p-1 rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Cybersecurity Team" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 glow-text">ELITE CYBER DEFENSE FORCE</h3>
+                    <p class="text-gray-300 mb-6">
+                        Operating from our quantum-secured facility, Galactic Shield deploys advanced AI-enhanced security protocols to protect against threats from across the digital multiverse.
+                    </p>
+                    <div class="flex items-center space-x-4 cyber-border p-2 mb-4 rounded">
+                        <i class="bi bi-check-circle-fill text-green-400 text-2xl"></i>
+                        <span>ISO 27001 CERTIFIED</span>
+                    </div>
+                    <div class="flex items-center space-x-4 cyber-border p-2 rounded">
+                        <i class="bi bi-check-circle-fill text-green-400 text-2xl"></i>
+                        <span>24/7 QUANTUM OPERATIONS CENTER</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Sec-X Cybersecurity. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black bg-opacity-80">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 glow-text">ESTABLISH UPLINK</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="service-card p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 glow-text">TRANSMISSION PROTOCOLS</h3>
+                    <div class="space-y-4">
+                        <p><i class="bi bi-envelope-fill mr-2"></i> ceo@sec-x.com</p>
+                        <p><i class="bi bi-telephone-fill mr-2"></i> QUANTUM-LINE: +91 7974487099</p>
+                        <p><i class="bi bi-geo-alt-fill mr-2"></i> SECTOR 7G, CYBER DISTRICT ALPHA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <button onclick="toggleChat()" class="cyber-button p-4 rounded-full">
+            <i class="bi bi-chat-dots-fill text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-90 text-cyan-400 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 GALACTIC_SHIELD // ALL_RIGHTS_SECURED</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="hover:text-cyan-300 transition-colors duration-300"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="hover:text-cyan-300 transition-colors duration-300"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="hover:text-cyan-300 transition-colors duration-300"><i class="bi bi-facebook"></i></a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Service Details Modal
+        function showServiceDetails(service) {
+            const services = {
+                pentest: "INITIATING QUANTUM ANALYSIS PROTOCOL...\n\nOur advanced penetration testing utilizes quantum computing algorithms to identify vulnerabilities across multiple security layers.",
+                vulnassess: "NEURAL NETWORK SCAN INITIATED...\n\nOur AI-driven vulnerability assessment system provides predictive analysis of potential security breaches.",
+                incident: "TEMPORAL DEFENSE GRID ACTIVE...\n\nOur incident response team operates across multiple time zones to provide instant threat neutralization."
+            };
+            alert(services[service]); // In production, replace with a proper modal
+        }
+
+        // Chat Widget Toggle
+        function toggleChat() {
+            alert("QUANTUM COMMUNICATION CHANNEL INITIALIZING...");
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
